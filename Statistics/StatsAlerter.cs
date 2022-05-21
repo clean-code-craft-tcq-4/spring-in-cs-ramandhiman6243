@@ -11,9 +11,18 @@
             this.alerters = alerters;
         }
 
-        public void checkAndAlert(System.Collections.Generic.List<float> s)
+        public void checkAndAlert(System.Collections.Generic.List<double> stats)
         {
+            StatsComputer statsComputer = new StatsComputer();
+            statsComputer.CalculateStatistics(stats);
 
+            if (statsComputer.max > maxThreshold)
+            {
+                for (int i = 0; i < alerters.Length; i++)
+                {
+                    alerters[i].Alert();
+                }
+            }
         }
     }
 }

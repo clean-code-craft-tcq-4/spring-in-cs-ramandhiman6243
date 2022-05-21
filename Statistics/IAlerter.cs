@@ -2,6 +2,6 @@
 {
     public interface IAlerter
     {
-
+        void Alert();
     }
 }
